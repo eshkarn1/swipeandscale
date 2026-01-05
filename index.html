@@ -142,15 +142,6 @@
         },
       ];
 
-      const handleSmoothScroll = (event, targetId) => {
-        event.preventDefault();
-        const target = document.querySelector(targetId);
-
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      };
-
       const AccentTag = ({ label }) => (
         <span className="pill">{label}</span>
       );
@@ -179,20 +170,8 @@
                 We help modern businesses attract attention, build trust, and convert leads across web and media. Strategy, design, content, and systems in one momentum-ready team.
               </p>
               <div className="hero-actions">
-                <a
-                  className="button primary"
-                  href="#packages"
-                  onClick={(event) => handleSmoothScroll(event, "#packages")}
-                >
-                  View packages
-                </a>
-                <a
-                  className="button ghost"
-                  href="#services"
-                  onClick={(event) => handleSmoothScroll(event, "#services")}
-                >
-                  Explore services
-                </a>
+                <a className="button primary" href="#packages">View packages</a>
+                <a className="button ghost" href="#services">Explore services</a>
               </div>
               <div className="tagline">
                 <AccentTag label="Websites" />
@@ -212,13 +191,7 @@
                   <li>Automated lead capture and follow-up</li>
                   <li>Analytics, insights, and rapid iteration</li>
                 </ul>
-                <a
-                  href="#contact"
-                  className="text-link"
-                  onClick={(event) => handleSmoothScroll(event, "#contact")}
-                >
-                  Book a discovery call →
-                </a>
+                <a href="#contact" className="text-link">Book a discovery call →</a>
               </div>
             </div>
           </div>
@@ -244,7 +217,15 @@
         <section id="services" className="section">
           <SectionHeader
             kicker="What we deliver"
-@@ -229,106 +256,137 @@
+            title="Digital, creative, and growth systems in one place"
+            subtitle="We design the experiences, content, and infrastructure that move people from awareness to action."
+          />
+          <div className="services-grid">
+            {serviceCategories.map((category) => (
+              <ServiceCard key={category.title} category={category} />
+            ))}
+          </div>
+        </section>
       );
 
       const Highlight = ({ item }) => (
@@ -270,19 +251,6 @@
         </section>
       );
 
-      const handlePackageClick = (packageName) => {
-        const subject = encodeURIComponent(`Interest in the ${packageName}`);
-        const body = encodeURIComponent(
-          `Hi Swipe & Scale team,
-
-I’d like to learn more about the ${packageName.toLowerCase()}. Can we schedule a quick call to discuss the best fit and next steps?
-
-Thanks!`
-        );
-
-        window.location.href = `mailto:hello@swipeandscale.com?subject=${subject}&body=${body}`;
-      };
-
       const PackageCard = ({ pkg }) => (
         <div className={`card package-card ${pkg.featured ? "featured" : ""}`}>
           <div className="package-head">
@@ -296,13 +264,6 @@ Thanks!`
             ))}
           </ul>
           <button className="button secondary">{pkg.action}</button>
-          <button
-            className="button secondary"
-            type="button"
-            onClick={() => handlePackageClick(pkg.name)}
-          >
-            {pkg.action}
-          </button>
         </div>
       );
 
@@ -333,13 +294,6 @@ Thanks!`
               <div className="hero-actions">
                 <a className="button primary" href="mailto:hello@swipeandscale.com">Book a discovery call</a>
                 <a className="button ghost" href="#top">Back to top</a>
-                <a
-                  className="button ghost"
-                  href="#top"
-                  onClick={(event) => handleSmoothScroll(event, "#top")}
-                >
-                  Back to top
-                </a>
               </div>
             </div>
             <div className="cta-stat">
@@ -357,15 +311,6 @@ Thanks!`
             <a href="#services">Services</a>
             <a href="#packages">Packages</a>
             <a href="#contact">Contact</a>
-            <a href="#services" onClick={(event) => handleSmoothScroll(event, "#services")}>
-              Services
-            </a>
-            <a href="#packages" onClick={(event) => handleSmoothScroll(event, "#packages")}>
-              Packages
-            </a>
-            <a href="#contact" onClick={(event) => handleSmoothScroll(event, "#contact")}>
-              Contact
-            </a>
           </div>
           <p className="footnote">Digital growth solutions for modern businesses.</p>
         </footer>
