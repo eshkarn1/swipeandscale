@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swipe & Scale | Digital Growth Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const serviceCategories = [
+        {
+          title: "Website & Digital Presence",
+          badge: "Foundation of credibility",
+          angle: "Your website should not just look good — it should convert.",
+          items: [
+            "Custom Business Websites",
+            "Landing Pages for Ads & Campaigns",
+            "Portfolio & Service-Based Websites",
+            "Website Redesigns & Modernization",
+            "Website Speed & Performance Optimization",
+            "Mobile-First & Responsive Design",
+            "SEO-Ready Website Structure",
+          ],
+        },
+        {
+          title: "Content & Social Media Growth",
+          badge: "Visibility & attention",
+          angle: "Attention is currency — we help you earn it.",
+          items: [
+            "Social Media Content Strategy",
+            "Short-Form Content (Reels, Shorts, TikToks)",
+            "Branded Post & Carousel Designs",
+            "Caption Writing & Content Hooks",
+            "Profile Optimization (Bio, Highlights, CTAs)",
+            "Content Calendars & Posting Strategy",
+          ],
+        },
+        {
+          title: "Branding & Creative",
+          badge: "Trust & identity",
+          angle: "Strong brands are remembered. Weak ones are scrolled past.",
+          items: [
+            "Brand Identity Creation",
+            "Logo Design & Refinement",
+            "Color Palette & Font Systems",
+            "Brand Guidelines (Mini Brand Books)",
+            "Visual Consistency Across Platforms",
+            "Creative Direction for Digital Media",
+          ],
+        },
+        {
+          title: "Lead Generation & Automation",
+          badge: "Turning attention into money",
+          angle: "More leads. Less chasing.",
+          items: [
+            "Lead Capture Funnels",
+            "Contact Forms & CRM Integration",
+            "Automated Email Responses",
+            "Booking & Appointment Systems",
+            "WhatsApp / Messenger Integrations",
+            "Conversion Optimization",
+          ],
+        },
+        {
+          title: "Business Systems & Optimization",
+          badge: "Scaling phase",
+          angle: "Systems scale businesses. Chaos doesn’t.",
+          items: [
+            "Website Analytics & Tracking Setup",
+            "Performance Reports & Insights",
+            "Process Automation (Forms → Sheets → CRM)",
+            "Growth Strategy Consulting",
+            "Digital Audits & Improvement Plans",
+          ],
+        },
+      ];
+
+      const packages = [
+        {
+          name: "Starter Presence Package",
+          highlight: "Website + Branding Basics",
+          description: "Launch quickly with a credible brand home.",
+          features: [
+            "1-page conversion-focused website",
+            "Brand palette, typography, and logo refresh",
+            "Mobile-first layout and speed tuning",
+            "Copy and messaging aligned to your offer",
+          ],
+          action: "Start with confidence",
+        },
+        {
+          name: "Growth Package",
+          highlight: "Website + Content Strategy + Lead Capture",
+          description: "Pair a high-performing site with media that pulls in leads.",
+          features: [
+            "Multi-page site with landing page for campaigns",
+            "Content calendar and short-form hooks",
+            "Lead magnet or booking funnel",
+            "Social profile optimization",
+          ],
+          action: "Accelerate growth",
+          featured: true,
+        },
+        {
+          name: "Scale Package",
+          highlight: "Full Website + Content + Automation + Optimization",
+          description: "Everything you need to scale with systems, not chaos.",
+          features: [
+            "Conversion-driven website revamp",
+            "Ongoing content direction and creative",
+            "CRM + email + chat automations",
+            "Analytics, reporting, and experiments",
+          ],
+          action: "Build momentum",
+        },
+      ];
+
+      const highlights = [
+        {
+          title: "Digital growth, not just design",
+          copy: "Every pixel is tied to an outcome: clicks, calls, sign-ups, and revenue.",
+        },
+        {
+          title: "Playbooks for modern platforms",
+          copy: "We design for the way people browse today: mobile-first, fast, swipeable.",
+        },
+        {
+          title: "Systems that scale",
+          copy: "From lead capture to automation, we build workflows that remove manual work.",
+        },
+      ];
+
+      const AccentTag = ({ label }) => (
+        <span className="pill">{label}</span>
+      );
+
+      const SectionHeader = ({ kicker, title, subtitle }) => (
+        <div className="section-header">
+          <div className="kicker">{kicker}</div>
+          <h2>{title}</h2>
+          {subtitle && <p className="subtitle">{subtitle}</p>}
+        </div>
+      );
+
+      const Hero = () => (
+        <header className="hero" id="top">
+          <div className="glow glow-1"></div>
+          <div className="glow glow-2"></div>
+          <div className="hero-grid">
+            <div>
+              <div className="pill pill-ghost">Digital Growth Studio</div>
+              <h1>
+                Swipe & Scale
+                <span className="gradient-text"> elevates brands</span> with
+                conversion-first experiences.
+              </h1>
+              <p className="lead">
+                We help modern businesses attract attention, build trust, and convert leads across web and media. Strategy, design, content, and systems in one momentum-ready team.
+              </p>
+              <div className="hero-actions">
+                <a className="button primary" href="#packages">View packages</a>
+                <a className="button ghost" href="#services">Explore services</a>
+              </div>
+              <div className="tagline">
+                <AccentTag label="Websites" />
+                <AccentTag label="Content" />
+                <AccentTag label="Brand" />
+                <AccentTag label="Automation" />
+              </div>
+            </div>
+            <div className="hero-card">
+              <div className="card-halo"></div>
+              <div className="hero-card__inner">
+                <div className="mini-title">Growth lens</div>
+                <h3>Every touchpoint engineered to convert.</h3>
+                <ul className="tick-list">
+                  <li>Conversion-focused website flows</li>
+                  <li>Swipe-worthy short-form content</li>
+                  <li>Automated lead capture and follow-up</li>
+                  <li>Analytics, insights, and rapid iteration</li>
+                </ul>
+                <a href="#contact" className="text-link">Book a discovery call →</a>
+              </div>
+            </div>
+          </div>
+        </header>
+      );
+
+      const ServiceCard = ({ category }) => (
+        <div className="card service-card">
+          <div className="service-card__head">
+            <span className="pill pill-glow">{category.badge}</span>
+            <h3>{category.title}</h3>
+            <p className="angle">{category.angle}</p>
+          </div>
+          <ul className="service-list">
+            {category.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+
+      const ServicesSection = () => (
+        <section id="services" className="section">
+          <SectionHeader
+            kicker="What we deliver"
+            title="Digital, creative, and growth systems in one place"
+            subtitle="We design the experiences, content, and infrastructure that move people from awareness to action."
+          />
+          <div className="services-grid">
+            {serviceCategories.map((category) => (
+              <ServiceCard key={category.title} category={category} />
+            ))}
+          </div>
+        </section>
+      );
+
+      const Highlight = ({ item }) => (
+        <div className="highlight-card">
+          <div className="icon-dot" />
+          <h4>{item.title}</h4>
+          <p>{item.copy}</p>
+        </div>
+      );
+
+      const HighlightsSection = () => (
+        <section className="section section-contrast">
+          <SectionHeader
+            kicker="Our approach"
+            title="Integrity in craft. Obsession with outcomes."
+            subtitle="We balance bold creative with reliable systems so your brand feels premium and performs better."
+          />
+          <div className="highlight-grid">
+            {highlights.map((item) => (
+              <Highlight key={item.title} item={item} />
+            ))}
+          </div>
+        </section>
+      );
+
+      const PackageCard = ({ pkg }) => (
+        <div className={`card package-card ${pkg.featured ? "featured" : ""}`}>
+          <div className="package-head">
+            <div className="pill pill-ghost">{pkg.highlight}</div>
+            <h3>{pkg.name}</h3>
+            <p>{pkg.description}</p>
+          </div>
+          <ul className="feature-list">
+            {pkg.features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+          <button className="button secondary">{pkg.action}</button>
+        </div>
+      );
+
+      const PackagesSection = () => (
+        <section id="packages" className="section">
+          <SectionHeader
+            kicker="Service bundles"
+            title="Packages that remove guesswork"
+            subtitle="Curated combinations designed to launch, grow, and scale modern businesses."
+          />
+          <div className="packages-grid">
+            {packages.map((pkg) => (
+              <PackageCard key={pkg.name} pkg={pkg} />
+            ))}
+          </div>
+        </section>
+      );
+
+      const CTASection = () => (
+        <section id="contact" className="section section-cta">
+          <div className="cta-card">
+            <div>
+              <div className="pill pill-ghost">Let’s build your momentum</div>
+              <h2>Ready to Swipe & Scale?</h2>
+              <p>
+                Tell us where you need traction—website, content, or systems. We’ll craft a roadmap that brings attention, trust, and conversions together.
+              </p>
+              <div className="hero-actions">
+                <a className="button primary" href="mailto:hello@swipeandscale.com">Book a discovery call</a>
+                <a className="button ghost" href="#top">Back to top</a>
+              </div>
+            </div>
+            <div className="cta-stat">
+              <div className="stat-number">4.8x</div>
+              <p>Average lift in lead volume after optimizing funnels & follow-up.</p>
+            </div>
+          </div>
+        </section>
+      );
+
+      const Footer = () => (
+        <footer className="footer">
+          <div className="logo">Swipe & Scale</div>
+          <div className="footer-links">
+            <a href="#services">Services</a>
+            <a href="#packages">Packages</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <p className="footnote">Digital growth solutions for modern businesses.</p>
+        </footer>
+      );
+
+      const App = () => (
+        <div className="page">
+          <Hero />
+          <ServicesSection />
+          <HighlightsSection />
+          <PackagesSection />
+          <CTASection />
+          <Footer />
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
